@@ -1,3 +1,6 @@
+from Note import Note
+
+
 class Menu:
     def menu():
         while True:
@@ -21,7 +24,7 @@ class Menu:
             elif x == "dell":
                 continue
             elif x == "all":
-                continue
+                Note.print_all_notes(Note.read_json_note())
             elif x == "find":
                 continue
             else:
