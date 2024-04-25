@@ -4,7 +4,7 @@ from Note import Note
 class Menu:
     def menu():
         while True:
-            print("Введите команду: ")
+            print("Команды: ")
             print("add  -> Добавление заметки ")
             print("view -> Показать выбранную заметку")
             print("edit -> Изменение заметки ")
@@ -12,11 +12,12 @@ class Menu:
             print("all  -> Показать все заментки")
             print("find -> Показать все заментки с указанной датой")
             print("exit -> Выход из программы")
-            x = input()
+            x = input("Введите команду: ")
+            print("")
             if x == "exit":
                 break
             elif x == "add":
-                continue
+                Note.add_note()
             elif x == "view":
                 continue
             elif x == "edit":
