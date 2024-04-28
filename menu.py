@@ -19,14 +19,14 @@ class Menu:
             elif x == "add":
                 Note.add_note()
             elif x == "view":
-                continue
+                Note.find_note()
             elif x == "edit":
-                continue
+                Note.change_note()
             elif x == "dell":
-                continue
+                Note.dell_note()
             elif x == "all":
                 Note.print_all_notes(Note.read_json_note())
             elif x == "find":
-                continue
+                Note.find_note_date()
             else:
                 print("Команда не известна!")
