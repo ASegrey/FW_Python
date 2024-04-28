@@ -31,16 +31,20 @@ class Note:
 
     def write_json_note(note):
         data_load = Note.read_json_note() 
+        id_note = 0
         for p in data_load['notes']:
             if p['name'] == note.name and p['date'] == note.date:
                 print(f"Заметка '{note.name}' с датой {note.date} уже существует!")
                 print('')
                 return
+            if id_note <= p['id']:
+                id_note = p['id'] + 1    
         data_load['notes'].append({
+            'id'  : id_note,
             'name': note.name,
             'date': note.date,
             'note': note.data_note
-        })
+            })
         with open('note.json', 'w+', encoding = "UTF-8") as outfile:
             json.dump(data_load, outfile)
             print("Заметка успешно сохранена")
@@ -109,6 +113,7 @@ class Note:
         for p in data_load['notes']:
             if p['name'] == note_name and p['date'] == note_date:
                 p['note'] = note_data
+                p['date'] = date.today().strftime('%d-%m-%y') # устанавливаем текщую дату изменения
                 with open('note.json', 'w+', encoding = "UTF-8") as outfile:
                     json.dump(data_load, outfile)
                     print(f"Заметка '{note_name}' с датой {note_date} изменена!")
